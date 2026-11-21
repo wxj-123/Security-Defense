@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.securitydefense.mapper.SysOperationLogMapper">
+
+    <select id="selectOperationLogPage" resultType="com.example.securitydefense.entity.SysOperationLog">
+        SELECT * FROM sys_operation_log
+        <where>
+            <if test="query.operationUser != null and query.operationUser != ''">
+                AND operation_user LIKE CONCAT('%', #{query.operationUser}, '%')
+            </if>
+            <if test="query.operationModule != null and query.operationModule != ''">
+                AND operation_module LIKE CONCAT('%', #{query.operationModule}, '%')
+            </if>
+            <if test="query.operationType != null and query.operationType != ''">
+                AND operation_type = #{query.operationType}
+            </if>
+            <if test="query.operationResult != null and query.operationResult != ''">
+                AND operation_result = #{query.operationResult}
+            </if>
+            <if test="query.startTime != null">
+                AND create_time >= #{query.startTime}
+            </if>
+            <if test="query.endTime != null">
+                AND create_time &lt;= #{query.endTime}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+    
+</mapper>

@@ -1,0 +1,72 @@
+# IntelliJ IDEA 优化内存配置
+# 基于您的系统可用内存 828MB，总内存 2048MB
+
+# 堆内存设置 - 根据可用内存调整
+-Xms512m
+-Xmx1024m
+
+# 元空间内存
+-XX:MetaspaceSize=256m
+-XX:MaxMetaspaceSize=512m
+
+# 垃圾回收优化
+-XX:+UseG1GC
+-XX:MaxGCPauseMillis=200
+-XX:InitiatingHeapOccupancyPercent=35
+
+# 压缩类指针（64位 JVM）
+-XX:+UseCompressedOops
+-XX:+UseCompressedClassPointers
+
+# 禁用不必要的后台处理
+-Didea.max.content.load.files.limit=1000
+
+# 优化文件监控
+-Dsun.nio.ch.maxUpdateArraySize=100
+
+# 减少 JIT 编译器内存使用
+-XX:ReservedCodeCacheSize=256m
+
+# 优化字符串去重
+-XX:+UseStringDeduplication
+
+# 减少线程栈大小
+-Xss256k
+
+# 启用并行类加载
+-XX:+ParallelRefProcEnabled
+
+# 优化 DirectByteBuffer
+-XX:MaxDirectMemorySize=256m
+
+# 禁用部分可视化效果以节省内存
+-Dide.mac.screen.menu=false
+-Dapple.awt.UIElement=true
+
+# 优化字体渲染
+-Dawt.useSystemAAFontSettings=lcd
+-Dswing.aatext=true
+
+# 减少 Swing 线程数
+-Dswing.threadpoolsize=4
+
+# 优化文件监控
+-Didea.io.buffer.size.kb=64
+
+# 减少 IDEA 后台任务线程数
+-Didea.max.content.load.files.limit=500
+
+# 优化内存分析
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath=./logs/heapdump.hprof
+
+# 减少类加载器缓存
+-XX:ClassUnloadingInterval=300
+
+# 优化 JIT 编译
+-XX:+TieredCompilation
+-XX:TieredStopAtLevel=1
+
+# 减少 Swing 线程优先级
+-Dswing.defaultlaf=com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+-Dswing.crossplatformlaf=com.sun.java.swing.plaf.windows.WindowsLookAndFeel

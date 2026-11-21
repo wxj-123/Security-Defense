@@ -1,0 +1,55 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### 运行日志 ###
+*.log
+logs/
+
+### 上传的用户文件 ###
+uploads/
+
+### 本地工作记录 ###
+.workbuddy/
+
+### 证书与私钥（绝不提交）###
+*.p12
+*.jks
+*.keystore
+*.pem
+*.key
+
+### 依赖与构建产物 ###
+node_modules/
+dist/
+
